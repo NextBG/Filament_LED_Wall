@@ -325,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JS2ME2LTBF;
-				INFOPLIST_FILE = "FilaLED-Controller/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FilaLED-Controller/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,7 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JS2ME2LTBF;
-				INFOPLIST_FILE = "FilaLED-Controller/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/FilaLED-Controller/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
