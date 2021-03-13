@@ -24,7 +24,7 @@ class LEDArrayView: UIView {
         self.arrayWidth = w
         self.arrayHeight = h
         super.init(frame: frame)
-        setupImages(reversed)
+        setupArrays(reversed)
         gestureRecognizer.addTarget(self, action: #selector(onSwipe(_:)))
     }
     
@@ -36,7 +36,7 @@ class LEDArrayView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupImages(_ reversed: Bool) {
+    func setupArrays(_ reversed: Bool) {
         //images
         //two bool arrays set false
     }
@@ -44,14 +44,16 @@ class LEDArrayView: UIView {
     @objc func onSwipe(_ sender: UIPanGestureRecognizer) {
         switch sender.state {
         case .began:
-            <#code#>
+            print("began")
         case .changed:
             print(
                 sender.location(in: self).x / bounds.width,
                 sender.location(in: self).y / bounds.height
             )
         default:
-            lastLedOn = ledOn.copy()
+            for (i, value) in ledOn.enumerated() {
+                lastLedOn[i] = value
+            }
         }
     }
 }
