@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name FilamentLEDWall)(type KiCad)(uri ${KIPRJMOD}/FilamentLEDWall.pretty)(options "")(descr ""))
+)
