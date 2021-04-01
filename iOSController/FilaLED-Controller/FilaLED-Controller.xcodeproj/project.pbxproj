@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D0F7C2D25FAFE1B008012D9 /* LEDArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F7C2C25FAFE1B008012D9 /* LEDArrayView.swift */; };
 		1D0F7C3725FC6258008012D9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0F7C3625FC6258008012D9 /* Server.swift */; };
+		1D1FF7E426149AF400B90667 /* FilaARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1FF7E326149AF400B90667 /* FilaARViewController.swift */; };
 		1D585EC625F1178C0056886F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D585EC525F1178C0056886F /* AppDelegate.swift */; };
 		1D585EC825F1178C0056886F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D585EC725F1178C0056886F /* SceneDelegate.swift */; };
 		1D585ECA25F1178C0056886F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D585EC925F1178C0056886F /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		1D0F7C2C25FAFE1B008012D9 /* LEDArrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDArrayView.swift; sourceTree = "<group>"; };
 		1D0F7C3625FC6258008012D9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		1D1FF7E326149AF400B90667 /* FilaARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilaARViewController.swift; sourceTree = "<group>"; };
 		1D585EC225F1178C0056886F /* FilaLED-Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FilaLED-Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D585EC525F1178C0056886F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D585EC725F1178C0056886F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				1D585ED025F1178D0056886F /* LaunchScreen.storyboard */,
 				1D585ECB25F1178C0056886F /* Main.storyboard */,
 				1D585EC925F1178C0056886F /* ViewController.swift */,
+				1D1FF7E326149AF400B90667 /* FilaARViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1FF7E426149AF400B90667 /* FilaARViewController.swift in Sources */,
 				1D585ECA25F1178C0056886F /* ViewController.swift in Sources */,
 				1D585EE025F118320056886F /* MatrixConverter.swift in Sources */,
 				1D585EC625F1178C0056886F /* AppDelegate.swift in Sources */,
