@@ -1,0 +1,196 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J?
+U 1 1 606704CD
+P 2700 3100
+F 0 "J?" H 2750 3417 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 2750 3326 50  0000 C CNN
+F 2 "" H 2700 3100 50  0001 C CNN
+F 3 "~" H 2700 3100 50  0001 C CNN
+	1    2700 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x04_Odd_Even J?
+U 1 1 60670B57
+P 3850 3250
+F 0 "J?" V 3854 3430 50  0000 L CNN
+F 1 "Conn_02x04_Odd_Even" V 3945 3430 50  0000 L CNN
+F 2 "" H 3850 3250 50  0001 C CNN
+F 3 "~" H 3850 3250 50  0001 C CNN
+	1    3850 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 60674DCB
+P 3250 2500
+F 0 "#PWR?" H 3250 2350 50  0001 C CNN
+F 1 "VCC" H 3265 2673 50  0000 C CNN
+F 2 "" H 3250 2500 50  0001 C CNN
+F 3 "" H 3250 2500 50  0001 C CNN
+	1    3250 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 606787E7
+P 2900 2600
+F 0 "SW?" H 2900 2885 50  0000 C CNN
+F 1 "SW_Push" H 2900 2794 50  0000 C CNN
+F 2 "" H 2900 2800 50  0001 C CNN
+F 3 "~" H 2900 2800 50  0001 C CNN
+	1    2900 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW?
+U 1 1 60679841
+P 3600 2600
+F 0 "SW?" H 3600 2885 50  0000 C CNN
+F 1 "SW_Push" H 3600 2794 50  0000 C CNN
+F 2 "" H 3600 2800 50  0001 C CNN
+F 3 "~" H 3600 2800 50  0001 C CNN
+	1    3600 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3100 2600 3250 2600
+Wire Wire Line
+	3250 2500 3250 2600
+Connection ~ 3250 2600
+Wire Wire Line
+	3250 2600 3400 2600
+Wire Wire Line
+	2500 2600 2500 3000
+$Comp
+L power:GND #PWR?
+U 1 1 6067A66E
+P 3950 3650
+F 0 "#PWR?" H 3950 3400 50  0001 C CNN
+F 1 "GND" H 3955 3477 50  0000 C CNN
+F 2 "" H 3950 3650 50  0001 C CNN
+F 3 "" H 3950 3650 50  0001 C CNN
+	1    3950 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 6067B802
+P 2500 3450
+F 0 "#PWR?" H 2500 3200 50  0001 C CNN
+F 1 "GND" H 2505 3277 50  0000 C CNN
+F 2 "" H 2500 3450 50  0001 C CNN
+F 3 "" H 2500 3450 50  0001 C CNN
+	1    2500 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 3300 2500 3450
+Text GLabel 2400 3100 0    50   BiDi ~ 0
+SDIO
+Text GLabel 2400 3200 0    50   BiDi ~ 0
+SDOI
+Text GLabel 3850 2950 1    50   BiDi ~ 0
+SDIO
+Text GLabel 3750 2950 1    50   BiDi ~ 0
+SDOI
+Wire Wire Line
+	3750 2950 3750 3050
+Wire Wire Line
+	3850 2950 3850 3050
+Wire Wire Line
+	3950 2600 3950 3050
+Text GLabel 3100 3100 2    50   BiDi ~ 0
+CLK
+Text GLabel 3100 3200 2    50   BiDi ~ 0
+LE
+Text GLabel 3100 3300 2    50   BiDi ~ 0
+OE
+Text GLabel 3850 3650 3    50   BiDi ~ 0
+CLK
+Text GLabel 3750 3650 3    50   BiDi ~ 0
+LE
+Text GLabel 3650 3650 3    50   BiDi ~ 0
+OE
+Wire Wire Line
+	3650 3550 3650 3650
+Wire Wire Line
+	3750 3550 3750 3650
+Wire Wire Line
+	3850 3550 3850 3650
+Wire Wire Line
+	3950 3550 3950 3650
+$Comp
+L power:GND #PWR?
+U 1 1 6068618B
+P 3400 3650
+F 0 "#PWR?" H 3400 3400 50  0001 C CNN
+F 1 "GND" H 3405 3477 50  0000 C CNN
+F 2 "" H 3400 3650 50  0001 C CNN
+F 3 "" H 3400 3650 50  0001 C CNN
+	1    3400 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 3100 2500 3100
+Wire Wire Line
+	2400 3200 2500 3200
+Wire Wire Line
+	2500 2600 2700 2600
+Wire Wire Line
+	3800 2600 3950 2600
+Wire Wire Line
+	3000 3000 3400 3000
+Wire Wire Line
+	3400 3000 3400 3650
+Wire Wire Line
+	3650 3050 3650 3000
+Wire Wire Line
+	3650 3000 3400 3000
+Connection ~ 3400 3000
+Wire Wire Line
+	3000 3100 3100 3100
+Wire Wire Line
+	3000 3200 3100 3200
+Wire Wire Line
+	3000 3300 3100 3300
+$Comp
+L power:GND #PWR?
+U 1 1 606880BD
+P 2550 4700
+F 0 "#PWR?" H 2550 4450 50  0001 C CNN
+F 1 "GND" H 2555 4527 50  0000 C CNN
+F 2 "" H 2550 4700 50  0001 C CNN
+F 3 "" H 2550 4700 50  0001 C CNN
+	1    2550 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 6068840F
+P 2550 4550
+F 0 "#PWR?" H 2550 4400 50  0001 C CNN
+F 1 "VCC" H 2565 4723 50  0000 C CNN
+F 2 "" H 2550 4550 50  0001 C CNN
+F 3 "" H 2550 4550 50  0001 C CNN
+	1    2550 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 4550 2550 4700
+$EndSCHEMATC
