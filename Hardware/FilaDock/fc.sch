@@ -24,20 +24,6 @@ F 3 "~" H 4000 2400 50  0001 C CNN
 	1    4000 2400
 	0    -1   -1   0   
 $EndComp
-Text GLabel 2950 2500 2    50   Input ~ 0
-SD_1TO2
-Text GLabel 2450 2500 0    50   Input ~ 0
-LE
-Text GLabel 2450 2600 0    50   Input ~ 0
-OE
-Text GLabel 4100 2100 1    50   Input ~ 0
-CLK
-Text GLabel 4000 2100 1    50   Input ~ 0
-LE
-Text GLabel 3900 2100 1    50   Input ~ 0
-OE
-Text GLabel 2450 2400 0    50   Input ~ 0
-CLK
 Text Label 5500 2350 0    50   ~ 0
 5v_PWR
 Text Label 7100 2350 2    50   ~ 0
@@ -96,8 +82,6 @@ F 3 "~" H 2650 2400 50  0001 C CNN
 	1    2650 2400
 	1    0    0    -1  
 $EndComp
-Text GLabel 2950 2400 2    50   Input ~ 0
-SD_2TO1
 Wire Notes Line
 	2000 1650 4700 1650
 Text Notes 2000 1650 0    118  ~ 0
@@ -137,42 +121,42 @@ Wire Wire Line
 $Comp
 L Connector:Conn_01x02_Male J3
 U 1 1 60677A8B
-P 3250 4100
-F 0 "J3" H 3350 3750 50  0000 C CNN
-F 1 "PWR_IN" H 3350 3850 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 3250 4100 50  0001 C CNN
-F 3 "~" H 3250 4100 50  0001 C CNN
-	1    3250 4100
+P 9150 2150
+F 0 "J3" H 9250 1800 50  0000 C CNN
+F 1 "PWR_IN" H 9250 1900 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 9150 2150 50  0001 C CNN
+F 3 "~" H 9150 2150 50  0001 C CNN
+	1    9150 2150
 	-1   0    0    1   
 $EndComp
-Text Label 2550 4000 0    50   ~ 0
+Text Label 8450 2050 0    50   ~ 0
 5v_PWR
 Wire Wire Line
-	2550 4000 3050 4000
+	8450 2050 8950 2050
 $Comp
 L power:GND #PWR0106
 U 1 1 60679E8F
-P 2950 4200
-F 0 "#PWR0106" H 2950 3950 50  0001 C CNN
-F 1 "GND" H 2955 4027 50  0000 C CNN
-F 2 "" H 2950 4200 50  0001 C CNN
-F 3 "" H 2950 4200 50  0001 C CNN
-	1    2950 4200
+P 8850 2250
+F 0 "#PWR0106" H 8850 2000 50  0001 C CNN
+F 1 "GND" H 8855 2077 50  0000 C CNN
+F 2 "" H 8850 2250 50  0001 C CNN
+F 3 "" H 8850 2250 50  0001 C CNN
+	1    8850 2250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2950 4200 2950 4100
+	8850 2250 8850 2150
 Wire Wire Line
-	2950 4100 3050 4100
+	8850 2150 8950 2150
 Wire Notes Line
-	2000 3600 3800 3600
+	7900 1650 9700 1650
 Wire Notes Line
-	3800 3600 3800 4600
+	9700 1650 9700 2650
 Wire Notes Line
-	3800 4600 2000 4600
+	9700 2650 7900 2650
 Wire Notes Line
-	2000 4600 2000 3600
-Text Notes 2000 3600 0    118  ~ 0
+	7900 2650 7900 1650
+Text Notes 7900 1650 0    118  ~ 0
 Power Input
 Wire Wire Line
 	4200 2700 4600 2700
@@ -182,8 +166,6 @@ Wire Notes Line
 	4700 1650 4700 3150
 Wire Notes Line
 	5150 3150 5150 1650
-Text GLabel 4000 2600 3    50   Input ~ 0
-SD_2TO1
 $Comp
 L power:GND #PWR0101
 U 1 1 6069982E
@@ -197,6 +179,14 @@ F 3 "" H 3900 2600 50  0001 C CNN
 $EndComp
 Text Label 4600 2700 2    50   ~ 0
 5v_CON2
-Text GLabel 4100 2600 3    50   Input ~ 0
-SD_1TO2
+NoConn ~ 4000 2100
+NoConn ~ 3900 2100
+NoConn ~ 4100 2100
+NoConn ~ 4000 2600
+NoConn ~ 4100 2600
+NoConn ~ 2950 2400
+NoConn ~ 2950 2500
+NoConn ~ 2450 2400
+NoConn ~ 2450 2500
+NoConn ~ 2450 2600
 $EndSCHEMATC
