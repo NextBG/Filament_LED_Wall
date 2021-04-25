@@ -1,7 +1,7 @@
-#define LED_OE  3
-#define LED_LE  4
-#define LED_CLK 5
-#define LED_SDI 6
+#define LED_OE  9
+#define LED_LE  6
+#define LED_CLK 3
+#define LED_SDI 5
 
 #define DELAY_TIME 1
 
