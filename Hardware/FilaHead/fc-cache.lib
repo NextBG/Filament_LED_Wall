@@ -1,6 +1,26 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
+# Connector_Conn_01x02_Male
+#
+DEF Connector_Conn_01x02_Male J 0 40 Y N 1 F N
+F0 "J" 0 100 50 H V C CNN
+F1 "Connector_Conn_01x02_Male" 0 -200 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ Connector*:*_1x??_*
+$ENDFPLIST
+DRAW
+S 34 -95 0 -105 1 1 6 F
+S 34 5 0 -5 1 1 6 F
+P 2 1 1 6 50 -100 34 -100 N
+P 2 1 1 6 50 0 34 0 N
+X Pin_1 1 200 0 150 L 50 50 1 1 P
+X Pin_2 2 200 -100 150 L 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Connector_Conn_01x15_Female
 #
 DEF Connector_Conn_01x15_Female J 0 40 Y N 1 F N
@@ -137,19 +157,28 @@ X D6 9 -500 0 100 R 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# Mechanical_MountingHole_Pad
+# Switch_SW_DIP_x02
 #
-DEF Mechanical_MountingHole_Pad H 0 40 N N 1 F N
-F0 "H" 0 250 50 H V C CNN
-F1 "Mechanical_MountingHole_Pad" 0 175 50 H V C CNN
+DEF Switch_SW_DIP_x02 SW 0 0 Y N 1 F N
+F0 "SW" 0 250 50 H V C CNN
+F1 "Switch_SW_DIP_x02" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
- MountingHole*Pad*
+ SW?DIP?x2*
 $ENDFPLIST
 DRAW
-C 0 50 50 0 1 50 N
-X 1 1 0 -100 100 U 50 50 1 1 I
+C -80 0 20 0 0 0 N
+C -80 100 20 0 0 0 N
+C 80 0 20 0 0 0 N
+C 80 100 20 0 0 0 N
+S -150 200 150 -100 0 1 10 f
+P 2 0 0 0 -60 5 93 46 N
+P 2 0 0 0 -60 105 93 146 N
+X ~ 1 -300 100 200 R 50 50 1 1 P
+X ~ 2 -300 0 200 R 50 50 1 1 P
+X ~ 3 300 0 200 L 50 50 1 1 P
+X ~ 4 300 100 200 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
