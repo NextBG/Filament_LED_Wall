@@ -253,15 +253,31 @@ void loop() {
     // delay(1000);
     // return;
     if (Serial.available()) {
+        switch(Serial.read()) {
+        case 'C': //Clear
+            //
+            break;
+        case 'S': //Set
+            break;
+        case 'U': //Update
+            break;
+        case 'T': //Transmit
+            break;
+        case 'P': //Preset
+            break;
+        default:
+            //Clear serial buffer
+        }
+
         if (Serial.read() == 'G') {
-        u8 command = Serial.parseInt();
-        unsigned int parameter = Serial.parseInt();
-        // Handle the intent
-        handler(command, parameter);
+            u8 command = Serial.parseInt();
+            unsigned int parameter = Serial.parseInt();
+            // Handle the intent
+            handler(command, parameter);
         }
         // Clear buffer
         while (Serial.available()) {
-        Serial.read();
+            Serial.read();
         }
     }
 }
