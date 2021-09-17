@@ -1,0 +1,6 @@
+Comment,Description,Designator,Footprint,LibRef,Pins,Quantity,±àºÅ
+SolderJumper_3_Open,Desc,"JP1,",SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm,LibRef,3,1
+Through Hole Items 
+Conn_1,Desc,"J1,",PinSocket_2x04_P2.54mm_Vertical,LibRef,8,1
+Conn_2,Desc,"J2,",PinSocket_2x04_P2.54mm_Vertical,LibRef,8,1
+PWR_IN,Desc,"J3,",PinHeader_1x02_P2.54mm_Horizontal,LibRef,2,1

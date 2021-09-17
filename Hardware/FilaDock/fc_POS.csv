@@ -1,0 +1,6 @@
+Designator,Footprint,Mid X,Mid Y,Ref X,Ref Y,Pad X,Pad Y,Layer,Rotation,Comment
+JP1,SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm,22.86mm,13.97mm,22.86mm,13.97mm,21.56mm,13.97mm,T,0,SolderJumper_3_Open
+Through Hole Items 
+J1,PinSocket_2x04_P2.54mm_Vertical,8.89mm,11.43mm,8.89mm,11.43mm,8.89mm,11.43mm,T,0,Conn_1
+J2,PinSocket_2x04_P2.54mm_Vertical,19.05mm,8.89mm,19.05mm,8.89mm,19.05mm,8.89mm,T,90,Conn_2
+J3,PinHeader_1x02_P2.54mm_Horizontal,2.54mm,8.89mm,2.54mm,8.89mm,2.54mm,8.89mm,B,180,PWR_IN

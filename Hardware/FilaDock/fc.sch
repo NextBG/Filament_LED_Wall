@@ -24,20 +24,20 @@ F 3 "~" H 4000 2400 50  0001 C CNN
 	1    4000 2400
 	0    -1   -1   0   
 $EndComp
-Text Label 5500 2350 0    50   ~ 0
+Text Label 5750 2350 0    50   ~ 0
 5v_PWR
-Text Label 7100 2350 2    50   ~ 0
+Text Label 6950 2600 2    50   ~ 0
 5v_CON1
-Text Label 7100 2450 2    50   ~ 0
+Text Label 5750 2600 0    50   ~ 0
 5v_CON2
 Text Label 3350 2300 2    50   ~ 0
 5v_CON1
 Wire Wire Line
 	2950 2300 3350 2300
 Wire Wire Line
-	7100 2350 6700 2350
+	6950 2600 6550 2600
 Wire Wire Line
-	6700 2450 7100 2450
+	6150 2600 5750 2600
 $Comp
 L power:GND #PWR0102
 U 1 1 6067B802
@@ -98,26 +98,6 @@ Wire Notes Line
 	4700 3150 2000 3150
 Wire Notes Line
 	2000 3150 2000 1650
-$Comp
-L Switch:SW_DIP_x02 SW1
-U 1 1 606D1845
-P 6400 2450
-F 0 "SW1" H 6400 2817 50  0000 C CNN
-F 1 "PowerSel" H 6400 2726 50  0000 C CNN
-F 2 "Button_Switch_SMD:SW_DIP_SPSTx02_Slide_KingTek_DSHP02TS_W7.62mm_P1.27mm" H 6400 2450 50  0001 C CNN
-F 3 "~" H 6400 2450 50  0001 C CNN
-	1    6400 2450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5500 2350 6000 2350
-Wire Wire Line
-	6100 2450 6000 2450
-Wire Wire Line
-	6000 2450 6000 2350
-Connection ~ 6000 2350
-Wire Wire Line
-	6000 2350 6100 2350
 $Comp
 L Connector:Conn_01x02_Male J3
 U 1 1 60677A8B
@@ -189,4 +169,19 @@ NoConn ~ 2950 2500
 NoConn ~ 2450 2400
 NoConn ~ 2450 2500
 NoConn ~ 2450 2600
+$Comp
+L Jumper:SolderJumper_3_Open JP1
+U 1 1 613DBF10
+P 6350 2600
+F 0 "JP1" H 6350 2713 50  0000 C CNN
+F 1 "SolderJumper_3_Open" H 6350 2804 50  0000 C CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm" H 6350 2600 50  0001 C CNN
+F 3 "~" H 6350 2600 50  0001 C CNN
+	1    6350 2600
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	5750 2350 6350 2350
+Wire Wire Line
+	6350 2450 6350 2350
 $EndSCHEMATC
