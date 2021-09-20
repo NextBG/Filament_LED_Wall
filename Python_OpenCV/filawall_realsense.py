@@ -2,8 +2,8 @@ import cv2
 import serial
 import time
 import pyrealsense2 as rs
-# import matplotlib.pyplot as plt
 import numpy as np
+# import matplotlib.pyplot as plt
 
 class FilaWall:
     # Display Configuration
@@ -13,6 +13,9 @@ class FilaWall:
     pixelHeight = screenHeight * 4
     pipeline = None
     ser = None
+    fps = 10
+    yesterdayVideo = cv2.VideoCapture('xxx.avi') # TODO: file names
+    todayVideo = cv2.VideoWriter('xxxx.avi', cv2.VideoWriter_fourcc(), fps, (pixelWidth, pixelHeight))
 
     def init_slave(self):
         # Open Serial port
@@ -39,7 +42,8 @@ class FilaWall:
         # Realsense D415i setting
         self.pipeline = rs.pipeline()
         config = rs.config()
-        config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
+        # 640x480, 10fps
+        config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, self.fps)
         self.pipeline.start(config)
 
     # 向下位机输出16个像素
@@ -52,13 +56,18 @@ class FilaWall:
         while True:
             frames = self.pipeline.wait_for_frames()
             depth_rs = frames.get_depth_frame()
-            depth = np.asanyarray(depth_rs.get_data()) # 格式转换
-            dimg_gray = cv2.convertScaleAbs(depth, alpha=255/4000) # 获取灰度深度图最大4米
-            dimg_gray = cv2.flip(dimg_gray, 1) # 镜像
-            gray_part = dimg_gray[0:480, 80:540] # 裁剪成正方形
-            gray_blur = cv2.blur(gray_part, (30, 30)) # 缩放，降低分辨率
+            depth = np.asanyarray(depth_rs.get_data())              # 格式转换
+            dimg_gray = cv2.convertScaleAbs(depth, alpha=255/4000)  # 获取灰度深度图最大4米
+            dimg_gray = cv2.flip(dimg_gray, 1)                      # 镜像
+            gray_part = dimg_gray[0:480, 80:540]                    # 裁剪成正方形
+            gray_blur = cv2.blur(gray_part, (30, 30))               # 缩放，降低分辨率
             gray_rescaled = cv2.resize(gray_blur, (self.pixelWidth, self.pixelHeight))
             ret, gray_thresh = cv2.threshold(gray_rescaled, 100, 255, cv2.THRESH_BINARY_INV)
+            self.todayVideo.write(gray_thresh)                      # Save Today's Video
+            yret, yframe = self.yesterdayVideo.read()               # Yesterday Once More
+            if yret:
+                gray_thresh += yframe # Mixed!
+                # TODO: Not Tested
             # 电脑端显示
             gray_rescaled_show = cv2.resize(gray_thresh, (480, 480), interpolation=cv2.INTER_AREA)
             color_depth = cv2.applyColorMap(gray_part, cv2.COLORMAP_JET)
