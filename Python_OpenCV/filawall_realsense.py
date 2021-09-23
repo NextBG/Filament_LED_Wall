@@ -1,9 +1,11 @@
 import cv2
+import os
+
 import serial
+from serial.tools import list_ports
 import time
 import pyrealsense2 as rs
 import numpy as np
-# import matplotlib.pyplot as plt
 
 class FilaWall:
     # Display Configuration
@@ -13,30 +15,45 @@ class FilaWall:
     pixelHeight = screenHeight * 4
     pipeline = None
     ser = None
-    fps = 10
-    yesterdayVideo = cv2.VideoCapture('xxx.avi') # TODO: file names
-    todayVideo = cv2.VideoWriter('xxxx.avi', cv2.VideoWriter_fourcc(), fps, (pixelWidth, pixelHeight))
+    fps = 30
+    # yesterdayVideo = cv2.VideoCapture('xxx.avi') # TODO: file names
+    # todayVideo = cv2.VideoWriter('xxxx.avi', cv2.VideoWriter_fourcc(), fps, (pixelWidth, pixelHeight))
 
     def init_slave(self):
         # Open Serial port
         availables = ['---:Select one below:---']
-        for device in serial.tools.list_ports.comports():
+        for device in list_ports.comports():
             availables.append(device.device)
-        id = 0
+        id = 0; target_port = 0
         for port in availables:
             print(id, port)
             id += 1
-        target_port = int(input('\nChoose device for FilaWall > '))
-        if target_port < 1 or target_port >= len(availables):
-            print('Fatal: invalid port.')
+        if len(availables) > 2:
+            target_port = int(input('\nChoose device for FilaWall > '))
+            if target_port < 1 or target_port >= len(availables):
+                print('Fatal: invalid port.\n\nTask failed successfully.')
+                exit(-1)
+        elif len(availables) == 2:
+            print('\nChoosing default device [1].')
+            target_port = 1
+        else:
+            print('Fatal: no available port.\n\nTask failed successfully.')
             exit(-1)
-        self.ser = serial.Serial(target_port, 115200, timeout=0.5)
+        os.system("sudo chmod 777 {}".format(availables[target_port]))
+        self.ser = serial.Serial(availables[target_port], 115200, timeout=0.5)
         time.sleep(2)
         print("Serial port {} opened".format(target_port))
 
-    # Send Command Method
-    def _sendCmd(self, cmd):
-        self.ser.write((str(cmd) + '\n').encode())
+    # Send command
+    def _sendCmd(self, cmd: int):
+        # self.ser.write((str(cmd) + '\n').encode())
+        byte_data = bytearray()
+        byte_data.append(cmd)
+        self.ser.write(byte_data)
+
+    # Send data sequence
+    def _send_seq(self, seq: list):
+        self._sendCmd((seq[0] << 0) + (seq[1] << 1) + (seq[2] << 2) + (seq[3] << 3))
 
     def init_realsense(self):
         # Realsense D415i setting
@@ -49,8 +66,11 @@ class FilaWall:
     # 向下位机输出16个像素
     def _displayUnit(self, unitRow, unitCol, image):
         for row in range(unitRow * 4 + 4 - 1, unitRow * 4 - 1, -1):
+            seq = []
             for col in range(unitCol * 4 + 4 - 1, unitCol * 4 - 1, -1):
-                self._sendCmd(int(not image[row][col] > 0))
+                seq.append(int(image[row][col] > 0))
+                # self._sendCmd(int(not image[row][col] > 0))
+            self._send_seq(seq)
 
     def start_running(self):
         while True:
@@ -63,11 +83,13 @@ class FilaWall:
             gray_blur = cv2.blur(gray_part, (30, 30))               # 缩放，降低分辨率
             gray_rescaled = cv2.resize(gray_blur, (self.pixelWidth, self.pixelHeight))
             ret, gray_thresh = cv2.threshold(gray_rescaled, 100, 255, cv2.THRESH_BINARY_INV)
+            '''
             self.todayVideo.write(gray_thresh)                      # Save Today's Video
             yret, yframe = self.yesterdayVideo.read()               # Yesterday Once More
             if yret:
                 gray_thresh += yframe # Mixed!
                 # TODO: Not Tested
+            '''
             # 电脑端显示
             gray_rescaled_show = cv2.resize(gray_thresh, (480, 480), interpolation=cv2.INTER_AREA)
             color_depth = cv2.applyColorMap(gray_part, cv2.COLORMAP_JET)
@@ -81,6 +103,6 @@ class FilaWall:
                 # （奇数行 且 屏幕高度偶数）或（偶数行 且 屏幕高度奇数） 逆向遍历
                 for unitCol in unitColIter:
                     self._displayUnit(unitRow, unitCol, gray_thresh)
-            self._sendCmd(2) # 向下位机发送同步信号
+            self._sendCmd(0x10) # 向下位机发送同步信号
             if cv2.waitKey(1) == ord('q'): break
         cv2.destroyAllWindows()
