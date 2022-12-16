@@ -1,1 +1,3 @@
-# Filament_LED_Wall
+# FilaWall
+
+The extendable display wall
